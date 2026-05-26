@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "./gen;trait_pb";
+
+import "google/protobuf/timestamp.proto";
+
+message IdRequest {
+    int32 user_id = 1;
+}
+
+message TraitRequest {
+    google.protobuf.Timestamp birth_date = 1;
+    int32 height = 2;
+    int32 weight = 3;
+}

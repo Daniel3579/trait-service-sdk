@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "./gen;trait_pb";
+
+message SingleRead {
+    int32 user_id = 1;
+}
+
+message MultipleReadResponse {
+    repeated SingleRead user_ids = 1;
+}

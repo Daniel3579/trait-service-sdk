@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "./gen;trait_pb";
+
+import "google/protobuf/timestamp.proto";
+import "trait_requests.proto";
+import "trait_responses.proto";
+
+service TraitService {
+    rpc Create (UserTrait) returns (UserTrait);
+    rpc Read (IdRequest) returns (UserTrait);
+    rpc ReadMultiple (TraitRequest) returns (MultipleReadResponse);
+    rpc Update (UserTrait) returns (UserTrait);
+    rpc Delete (IdRequest) returns (UserTrait);
+}
+
+message UserTrait {
+    int32 user_id = 1;
+    google.protobuf.Timestamp birth_date = 2;
+    int32 height = 3;
+    int32 weight = 4;
+}
