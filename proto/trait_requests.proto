@@ -9,7 +9,10 @@ message IdRequest {
 }
 
 message TraitRequest {
-    google.protobuf.Timestamp birth_date = 1;
-    int32 height = 2;
-    int32 weight = 3;
+    google.protobuf.Timestamp birth_from = 1;
+    google.protobuf.Timestamp birth_to = 2;
+    int32 height_from = 3;
+    int32 height_to = 4;
+    int32 weight_from = 5;
+    int32 weight_to = 6;
 }
