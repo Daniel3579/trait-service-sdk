@@ -68,9 +68,12 @@ func (x *IdRequest) GetUserId() int32 {
 
 type TraitRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	BirthDate     *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=birth_date,json=birthDate,proto3" json:"birth_date,omitempty"`
-	Height        int32                  `protobuf:"varint,2,opt,name=height,proto3" json:"height,omitempty"`
-	Weight        int32                  `protobuf:"varint,3,opt,name=weight,proto3" json:"weight,omitempty"`
+	BirthFrom     *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=birth_from,json=birthFrom,proto3" json:"birth_from,omitempty"`
+	BirthTo       *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=birth_to,json=birthTo,proto3" json:"birth_to,omitempty"`
+	HeightFrom    int32                  `protobuf:"varint,3,opt,name=height_from,json=heightFrom,proto3" json:"height_from,omitempty"`
+	HeightTo      int32                  `protobuf:"varint,4,opt,name=height_to,json=heightTo,proto3" json:"height_to,omitempty"`
+	WeightFrom    int32                  `protobuf:"varint,5,opt,name=weight_from,json=weightFrom,proto3" json:"weight_from,omitempty"`
+	WeightTo      int32                  `protobuf:"varint,6,opt,name=weight_to,json=weightTo,proto3" json:"weight_to,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -105,23 +108,44 @@ func (*TraitRequest) Descriptor() ([]byte, []int) {
 	return file_trait_requests_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *TraitRequest) GetBirthDate() *timestamppb.Timestamp {
+func (x *TraitRequest) GetBirthFrom() *timestamppb.Timestamp {
 	if x != nil {
-		return x.BirthDate
+		return x.BirthFrom
 	}
 	return nil
 }
 
-func (x *TraitRequest) GetHeight() int32 {
+func (x *TraitRequest) GetBirthTo() *timestamppb.Timestamp {
 	if x != nil {
-		return x.Height
+		return x.BirthTo
+	}
+	return nil
+}
+
+func (x *TraitRequest) GetHeightFrom() int32 {
+	if x != nil {
+		return x.HeightFrom
 	}
 	return 0
 }
 
-func (x *TraitRequest) GetWeight() int32 {
+func (x *TraitRequest) GetHeightTo() int32 {
 	if x != nil {
-		return x.Weight
+		return x.HeightTo
+	}
+	return 0
+}
+
+func (x *TraitRequest) GetWeightFrom() int32 {
+	if x != nil {
+		return x.WeightFrom
+	}
+	return 0
+}
+
+func (x *TraitRequest) GetWeightTo() int32 {
+	if x != nil {
+		return x.WeightTo
 	}
 	return 0
 }
@@ -132,12 +156,17 @@ const file_trait_requests_proto_rawDesc = "" +
 	"\n" +
 	"\x14trait_requests.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"$\n" +
 	"\tIdRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x05R\x06userId\"y\n" +
+	"\auser_id\x18\x01 \x01(\x05R\x06userId\"\xfc\x01\n" +
 	"\fTraitRequest\x129\n" +
 	"\n" +
-	"birth_date\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\tbirthDate\x12\x16\n" +
-	"\x06height\x18\x02 \x01(\x05R\x06height\x12\x16\n" +
-	"\x06weight\x18\x03 \x01(\x05R\x06weightB\x10Z\x0e./gen;trait_pbb\x06proto3"
+	"birth_from\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\tbirthFrom\x125\n" +
+	"\bbirth_to\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\abirthTo\x12\x1f\n" +
+	"\vheight_from\x18\x03 \x01(\x05R\n" +
+	"heightFrom\x12\x1b\n" +
+	"\theight_to\x18\x04 \x01(\x05R\bheightTo\x12\x1f\n" +
+	"\vweight_from\x18\x05 \x01(\x05R\n" +
+	"weightFrom\x12\x1b\n" +
+	"\tweight_to\x18\x06 \x01(\x05R\bweightToB\x10Z\x0e./gen;trait_pbb\x06proto3"
 
 var (
 	file_trait_requests_proto_rawDescOnce sync.Once
@@ -158,12 +187,13 @@ var file_trait_requests_proto_goTypes = []any{
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_trait_requests_proto_depIdxs = []int32{
-	2, // 0: TraitRequest.birth_date:type_name -> google.protobuf.Timestamp
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 0: TraitRequest.birth_from:type_name -> google.protobuf.Timestamp
+	2, // 1: TraitRequest.birth_to:type_name -> google.protobuf.Timestamp
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_trait_requests_proto_init() }
