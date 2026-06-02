@@ -8,10 +8,10 @@ import "trait_responses.proto";
 
 service TraitService {
     rpc Create (UserTrait) returns (UserTrait);
-    rpc Read (IdRequest) returns (UserTrait);
+    rpc Read (UIdRequest) returns (UserTrait);
     rpc ReadMultiple (TraitRequest) returns (MultipleReadResponse);
     rpc Update (UserTrait) returns (UserTrait);
-    rpc Delete (IdRequest) returns (UserTrait);
+    rpc Delete (UIdRequest) returns (UserTrait);
 }
 
 message UserTrait {

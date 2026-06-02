@@ -22,27 +22,27 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type IdRequest struct {
+type UIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *IdRequest) Reset() {
-	*x = IdRequest{}
+func (x *UIdRequest) Reset() {
+	*x = UIdRequest{}
 	mi := &file_trait_requests_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *IdRequest) String() string {
+func (x *UIdRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*IdRequest) ProtoMessage() {}
+func (*UIdRequest) ProtoMessage() {}
 
-func (x *IdRequest) ProtoReflect() protoreflect.Message {
+func (x *UIdRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_trait_requests_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -54,12 +54,12 @@ func (x *IdRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use IdRequest.ProtoReflect.Descriptor instead.
-func (*IdRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use UIdRequest.ProtoReflect.Descriptor instead.
+func (*UIdRequest) Descriptor() ([]byte, []int) {
 	return file_trait_requests_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *IdRequest) GetUserId() int32 {
+func (x *UIdRequest) GetUserId() int32 {
 	if x != nil {
 		return x.UserId
 	}
@@ -154,8 +154,9 @@ var File_trait_requests_proto protoreflect.FileDescriptor
 
 const file_trait_requests_proto_rawDesc = "" +
 	"\n" +
-	"\x14trait_requests.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"$\n" +
-	"\tIdRequest\x12\x17\n" +
+	"\x14trait_requests.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"%\n" +
+	"\n" +
+	"UIdRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\x05R\x06userId\"\xfc\x01\n" +
 	"\fTraitRequest\x129\n" +
 	"\n" +
@@ -182,7 +183,7 @@ func file_trait_requests_proto_rawDescGZIP() []byte {
 
 var file_trait_requests_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_trait_requests_proto_goTypes = []any{
-	(*IdRequest)(nil),             // 0: IdRequest
+	(*UIdRequest)(nil),            // 0: UIdRequest
 	(*TraitRequest)(nil),          // 1: TraitRequest
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }

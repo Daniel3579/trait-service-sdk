@@ -31,10 +31,10 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TraitServiceClient interface {
 	Create(ctx context.Context, in *UserTrait, opts ...grpc.CallOption) (*UserTrait, error)
-	Read(ctx context.Context, in *IdRequest, opts ...grpc.CallOption) (*UserTrait, error)
+	Read(ctx context.Context, in *UIdRequest, opts ...grpc.CallOption) (*UserTrait, error)
 	ReadMultiple(ctx context.Context, in *TraitRequest, opts ...grpc.CallOption) (*MultipleReadResponse, error)
 	Update(ctx context.Context, in *UserTrait, opts ...grpc.CallOption) (*UserTrait, error)
-	Delete(ctx context.Context, in *IdRequest, opts ...grpc.CallOption) (*UserTrait, error)
+	Delete(ctx context.Context, in *UIdRequest, opts ...grpc.CallOption) (*UserTrait, error)
 }
 
 type traitServiceClient struct {
@@ -55,7 +55,7 @@ func (c *traitServiceClient) Create(ctx context.Context, in *UserTrait, opts ...
 	return out, nil
 }
 
-func (c *traitServiceClient) Read(ctx context.Context, in *IdRequest, opts ...grpc.CallOption) (*UserTrait, error) {
+func (c *traitServiceClient) Read(ctx context.Context, in *UIdRequest, opts ...grpc.CallOption) (*UserTrait, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserTrait)
 	err := c.cc.Invoke(ctx, TraitService_Read_FullMethodName, in, out, cOpts...)
@@ -85,7 +85,7 @@ func (c *traitServiceClient) Update(ctx context.Context, in *UserTrait, opts ...
 	return out, nil
 }
 
-func (c *traitServiceClient) Delete(ctx context.Context, in *IdRequest, opts ...grpc.CallOption) (*UserTrait, error) {
+func (c *traitServiceClient) Delete(ctx context.Context, in *UIdRequest, opts ...grpc.CallOption) (*UserTrait, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserTrait)
 	err := c.cc.Invoke(ctx, TraitService_Delete_FullMethodName, in, out, cOpts...)
@@ -100,10 +100,10 @@ func (c *traitServiceClient) Delete(ctx context.Context, in *IdRequest, opts ...
 // for forward compatibility.
 type TraitServiceServer interface {
 	Create(context.Context, *UserTrait) (*UserTrait, error)
-	Read(context.Context, *IdRequest) (*UserTrait, error)
+	Read(context.Context, *UIdRequest) (*UserTrait, error)
 	ReadMultiple(context.Context, *TraitRequest) (*MultipleReadResponse, error)
 	Update(context.Context, *UserTrait) (*UserTrait, error)
-	Delete(context.Context, *IdRequest) (*UserTrait, error)
+	Delete(context.Context, *UIdRequest) (*UserTrait, error)
 	mustEmbedUnimplementedTraitServiceServer()
 }
 
@@ -117,7 +117,7 @@ type UnimplementedTraitServiceServer struct{}
 func (UnimplementedTraitServiceServer) Create(context.Context, *UserTrait) (*UserTrait, error) {
 	return nil, status.Error(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedTraitServiceServer) Read(context.Context, *IdRequest) (*UserTrait, error) {
+func (UnimplementedTraitServiceServer) Read(context.Context, *UIdRequest) (*UserTrait, error) {
 	return nil, status.Error(codes.Unimplemented, "method Read not implemented")
 }
 func (UnimplementedTraitServiceServer) ReadMultiple(context.Context, *TraitRequest) (*MultipleReadResponse, error) {
@@ -126,7 +126,7 @@ func (UnimplementedTraitServiceServer) ReadMultiple(context.Context, *TraitReque
 func (UnimplementedTraitServiceServer) Update(context.Context, *UserTrait) (*UserTrait, error) {
 	return nil, status.Error(codes.Unimplemented, "method Update not implemented")
 }
-func (UnimplementedTraitServiceServer) Delete(context.Context, *IdRequest) (*UserTrait, error) {
+func (UnimplementedTraitServiceServer) Delete(context.Context, *UIdRequest) (*UserTrait, error) {
 	return nil, status.Error(codes.Unimplemented, "method Delete not implemented")
 }
 func (UnimplementedTraitServiceServer) mustEmbedUnimplementedTraitServiceServer() {}
@@ -169,7 +169,7 @@ func _TraitService_Create_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _TraitService_Read_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IdRequest)
+	in := new(UIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -181,7 +181,7 @@ func _TraitService_Read_Handler(srv interface{}, ctx context.Context, dec func(i
 		FullMethod: TraitService_Read_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TraitServiceServer).Read(ctx, req.(*IdRequest))
+		return srv.(TraitServiceServer).Read(ctx, req.(*UIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -223,7 +223,7 @@ func _TraitService_Update_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _TraitService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IdRequest)
+	in := new(UIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -235,7 +235,7 @@ func _TraitService_Delete_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: TraitService_Delete_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TraitServiceServer).Delete(ctx, req.(*IdRequest))
+		return srv.(TraitServiceServer).Delete(ctx, req.(*UIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

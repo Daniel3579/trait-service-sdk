@@ -4,7 +4,7 @@ option go_package = "./gen;trait_pb";
 
 import "google/protobuf/timestamp.proto";
 
-message IdRequest {
+message UIdRequest {
     int32 user_id = 1;
 }
 

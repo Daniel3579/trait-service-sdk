@@ -100,20 +100,18 @@ const file_trait_service_proto_rawDesc = "" +
 	"\n" +
 	"birth_date\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\tbirthDate\x12\x16\n" +
 	"\x06height\x18\x03 \x01(\x05R\x06height\x12\x16\n" +
-	"\x06weight\x18\x04 \x01(\x05R\x06weight2\xca\x01\n" +
+	"\x06weight\x18\x04 \x01(\x05R\x06weight2\xcc\x01\n" +
 	"\fTraitService\x12 \n" +
 	"\x06Create\x12\n" +
 	".UserTrait\x1a\n" +
-	".UserTrait\x12\x1e\n" +
-	"\x04Read\x12\n" +
-	".IdRequest\x1a\n" +
+	".UserTrait\x12\x1f\n" +
+	"\x04Read\x12\v.UIdRequest\x1a\n" +
 	".UserTrait\x124\n" +
 	"\fReadMultiple\x12\r.TraitRequest\x1a\x15.MultipleReadResponse\x12 \n" +
 	"\x06Update\x12\n" +
 	".UserTrait\x1a\n" +
-	".UserTrait\x12 \n" +
-	"\x06Delete\x12\n" +
-	".IdRequest\x1a\n" +
+	".UserTrait\x12!\n" +
+	"\x06Delete\x12\v.UIdRequest\x1a\n" +
 	".UserTraitB\x10Z\x0e./gen;trait_pbb\x06proto3"
 
 var (
@@ -132,17 +130,17 @@ var file_trait_service_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_trait_service_proto_goTypes = []any{
 	(*UserTrait)(nil),             // 0: UserTrait
 	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
-	(*IdRequest)(nil),             // 2: IdRequest
+	(*UIdRequest)(nil),            // 2: UIdRequest
 	(*TraitRequest)(nil),          // 3: TraitRequest
 	(*MultipleReadResponse)(nil),  // 4: MultipleReadResponse
 }
 var file_trait_service_proto_depIdxs = []int32{
 	1, // 0: UserTrait.birth_date:type_name -> google.protobuf.Timestamp
 	0, // 1: TraitService.Create:input_type -> UserTrait
-	2, // 2: TraitService.Read:input_type -> IdRequest
+	2, // 2: TraitService.Read:input_type -> UIdRequest
 	3, // 3: TraitService.ReadMultiple:input_type -> TraitRequest
 	0, // 4: TraitService.Update:input_type -> UserTrait
-	2, // 5: TraitService.Delete:input_type -> IdRequest
+	2, // 5: TraitService.Delete:input_type -> UIdRequest
 	0, // 6: TraitService.Create:output_type -> UserTrait
 	0, // 7: TraitService.Read:output_type -> UserTrait
 	4, // 8: TraitService.ReadMultiple:output_type -> MultipleReadResponse
