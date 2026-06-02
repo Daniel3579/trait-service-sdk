@@ -100,14 +100,14 @@ const file_trait_service_proto_rawDesc = "" +
 	"\n" +
 	"birth_date\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\tbirthDate\x12\x16\n" +
 	"\x06height\x18\x03 \x01(\x05R\x06height\x12\x16\n" +
-	"\x06weight\x18\x04 \x01(\x05R\x06weight2\xcc\x01\n" +
+	"\x06weight\x18\x04 \x01(\x05R\x06weight2\xcd\x01\n" +
 	"\fTraitService\x12 \n" +
 	"\x06Create\x12\n" +
 	".UserTrait\x1a\n" +
 	".UserTrait\x12\x1f\n" +
 	"\x04Read\x12\v.UIdRequest\x1a\n" +
-	".UserTrait\x124\n" +
-	"\fReadMultiple\x12\r.TraitRequest\x1a\x15.MultipleReadResponse\x12 \n" +
+	".UserTrait\x125\n" +
+	"\fReadMultiple\x12\r.TraitRequest\x1a\x16.TMultipleReadResponse\x12 \n" +
 	"\x06Update\x12\n" +
 	".UserTrait\x1a\n" +
 	".UserTrait\x12!\n" +
@@ -132,7 +132,7 @@ var file_trait_service_proto_goTypes = []any{
 	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
 	(*UIdRequest)(nil),            // 2: UIdRequest
 	(*TraitRequest)(nil),          // 3: TraitRequest
-	(*MultipleReadResponse)(nil),  // 4: MultipleReadResponse
+	(*TMultipleReadResponse)(nil), // 4: TMultipleReadResponse
 }
 var file_trait_service_proto_depIdxs = []int32{
 	1, // 0: UserTrait.birth_date:type_name -> google.protobuf.Timestamp
@@ -143,7 +143,7 @@ var file_trait_service_proto_depIdxs = []int32{
 	2, // 5: TraitService.Delete:input_type -> UIdRequest
 	0, // 6: TraitService.Create:output_type -> UserTrait
 	0, // 7: TraitService.Read:output_type -> UserTrait
-	4, // 8: TraitService.ReadMultiple:output_type -> MultipleReadResponse
+	4, // 8: TraitService.ReadMultiple:output_type -> TMultipleReadResponse
 	0, // 9: TraitService.Update:output_type -> UserTrait
 	0, // 10: TraitService.Delete:output_type -> UserTrait
 	6, // [6:11] is the sub-list for method output_type

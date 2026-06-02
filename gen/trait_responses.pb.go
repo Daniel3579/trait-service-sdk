@@ -21,27 +21,27 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type SingleRead struct {
+type TSingleRead struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SingleRead) Reset() {
-	*x = SingleRead{}
+func (x *TSingleRead) Reset() {
+	*x = TSingleRead{}
 	mi := &file_trait_responses_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SingleRead) String() string {
+func (x *TSingleRead) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SingleRead) ProtoMessage() {}
+func (*TSingleRead) ProtoMessage() {}
 
-func (x *SingleRead) ProtoReflect() protoreflect.Message {
+func (x *TSingleRead) ProtoReflect() protoreflect.Message {
 	mi := &file_trait_responses_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -53,39 +53,39 @@ func (x *SingleRead) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SingleRead.ProtoReflect.Descriptor instead.
-func (*SingleRead) Descriptor() ([]byte, []int) {
+// Deprecated: Use TSingleRead.ProtoReflect.Descriptor instead.
+func (*TSingleRead) Descriptor() ([]byte, []int) {
 	return file_trait_responses_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *SingleRead) GetUserId() int32 {
+func (x *TSingleRead) GetUserId() int32 {
 	if x != nil {
 		return x.UserId
 	}
 	return 0
 }
 
-type MultipleReadResponse struct {
+type TMultipleReadResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserIds       []*SingleRead          `protobuf:"bytes,1,rep,name=user_ids,json=userIds,proto3" json:"user_ids,omitempty"`
+	UserIds       []*TSingleRead         `protobuf:"bytes,1,rep,name=user_ids,json=userIds,proto3" json:"user_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MultipleReadResponse) Reset() {
-	*x = MultipleReadResponse{}
+func (x *TMultipleReadResponse) Reset() {
+	*x = TMultipleReadResponse{}
 	mi := &file_trait_responses_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MultipleReadResponse) String() string {
+func (x *TMultipleReadResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MultipleReadResponse) ProtoMessage() {}
+func (*TMultipleReadResponse) ProtoMessage() {}
 
-func (x *MultipleReadResponse) ProtoReflect() protoreflect.Message {
+func (x *TMultipleReadResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_trait_responses_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -97,12 +97,12 @@ func (x *MultipleReadResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MultipleReadResponse.ProtoReflect.Descriptor instead.
-func (*MultipleReadResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use TMultipleReadResponse.ProtoReflect.Descriptor instead.
+func (*TMultipleReadResponse) Descriptor() ([]byte, []int) {
 	return file_trait_responses_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *MultipleReadResponse) GetUserIds() []*SingleRead {
+func (x *TMultipleReadResponse) GetUserIds() []*TSingleRead {
 	if x != nil {
 		return x.UserIds
 	}
@@ -113,12 +113,11 @@ var File_trait_responses_proto protoreflect.FileDescriptor
 
 const file_trait_responses_proto_rawDesc = "" +
 	"\n" +
-	"\x15trait_responses.proto\"%\n" +
-	"\n" +
-	"SingleRead\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x05R\x06userId\">\n" +
-	"\x14MultipleReadResponse\x12&\n" +
-	"\buser_ids\x18\x01 \x03(\v2\v.SingleReadR\auserIdsB\x10Z\x0e./gen;trait_pbb\x06proto3"
+	"\x15trait_responses.proto\"&\n" +
+	"\vTSingleRead\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\x05R\x06userId\"@\n" +
+	"\x15TMultipleReadResponse\x12'\n" +
+	"\buser_ids\x18\x01 \x03(\v2\f.TSingleReadR\auserIdsB\x10Z\x0e./gen;trait_pbb\x06proto3"
 
 var (
 	file_trait_responses_proto_rawDescOnce sync.Once
@@ -134,11 +133,11 @@ func file_trait_responses_proto_rawDescGZIP() []byte {
 
 var file_trait_responses_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_trait_responses_proto_goTypes = []any{
-	(*SingleRead)(nil),           // 0: SingleRead
-	(*MultipleReadResponse)(nil), // 1: MultipleReadResponse
+	(*TSingleRead)(nil),           // 0: TSingleRead
+	(*TMultipleReadResponse)(nil), // 1: TMultipleReadResponse
 }
 var file_trait_responses_proto_depIdxs = []int32{
-	0, // 0: MultipleReadResponse.user_ids:type_name -> SingleRead
+	0, // 0: TMultipleReadResponse.user_ids:type_name -> TSingleRead
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

@@ -32,7 +32,7 @@ const (
 type TraitServiceClient interface {
 	Create(ctx context.Context, in *UserTrait, opts ...grpc.CallOption) (*UserTrait, error)
 	Read(ctx context.Context, in *UIdRequest, opts ...grpc.CallOption) (*UserTrait, error)
-	ReadMultiple(ctx context.Context, in *TraitRequest, opts ...grpc.CallOption) (*MultipleReadResponse, error)
+	ReadMultiple(ctx context.Context, in *TraitRequest, opts ...grpc.CallOption) (*TMultipleReadResponse, error)
 	Update(ctx context.Context, in *UserTrait, opts ...grpc.CallOption) (*UserTrait, error)
 	Delete(ctx context.Context, in *UIdRequest, opts ...grpc.CallOption) (*UserTrait, error)
 }
@@ -65,9 +65,9 @@ func (c *traitServiceClient) Read(ctx context.Context, in *UIdRequest, opts ...g
 	return out, nil
 }
 
-func (c *traitServiceClient) ReadMultiple(ctx context.Context, in *TraitRequest, opts ...grpc.CallOption) (*MultipleReadResponse, error) {
+func (c *traitServiceClient) ReadMultiple(ctx context.Context, in *TraitRequest, opts ...grpc.CallOption) (*TMultipleReadResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MultipleReadResponse)
+	out := new(TMultipleReadResponse)
 	err := c.cc.Invoke(ctx, TraitService_ReadMultiple_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -101,7 +101,7 @@ func (c *traitServiceClient) Delete(ctx context.Context, in *UIdRequest, opts ..
 type TraitServiceServer interface {
 	Create(context.Context, *UserTrait) (*UserTrait, error)
 	Read(context.Context, *UIdRequest) (*UserTrait, error)
-	ReadMultiple(context.Context, *TraitRequest) (*MultipleReadResponse, error)
+	ReadMultiple(context.Context, *TraitRequest) (*TMultipleReadResponse, error)
 	Update(context.Context, *UserTrait) (*UserTrait, error)
 	Delete(context.Context, *UIdRequest) (*UserTrait, error)
 	mustEmbedUnimplementedTraitServiceServer()
@@ -120,7 +120,7 @@ func (UnimplementedTraitServiceServer) Create(context.Context, *UserTrait) (*Use
 func (UnimplementedTraitServiceServer) Read(context.Context, *UIdRequest) (*UserTrait, error) {
 	return nil, status.Error(codes.Unimplemented, "method Read not implemented")
 }
-func (UnimplementedTraitServiceServer) ReadMultiple(context.Context, *TraitRequest) (*MultipleReadResponse, error) {
+func (UnimplementedTraitServiceServer) ReadMultiple(context.Context, *TraitRequest) (*TMultipleReadResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ReadMultiple not implemented")
 }
 func (UnimplementedTraitServiceServer) Update(context.Context, *UserTrait) (*UserTrait, error) {

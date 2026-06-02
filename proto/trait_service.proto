@@ -9,7 +9,7 @@ import "trait_responses.proto";
 service TraitService {
     rpc Create (UserTrait) returns (UserTrait);
     rpc Read (UIdRequest) returns (UserTrait);
-    rpc ReadMultiple (TraitRequest) returns (MultipleReadResponse);
+    rpc ReadMultiple (TraitRequest) returns (TMultipleReadResponse);
     rpc Update (UserTrait) returns (UserTrait);
     rpc Delete (UIdRequest) returns (UserTrait);
 }
